@@ -17,12 +17,15 @@ public class CustomerJpaExam {
         tx.begin();
 
         try {
-//            em.persist(Customer.sample());
-            Customer foundCustomer = em.find(Customer.class, "ID0001");
+            Customer customer = new Customer("ID0003", "Kim");
+            em.persist(customer); // 1차 캐싱
+            Customer cus01 = em.find(Customer.class, "ID0002");
+            System.out.println("cus01 = " + cus01);
+//            Customer foundCustomer = em.find(Customer.class, "ID0001");
 //            foundCustomer.setName("Park");
-            em.remove(foundCustomer);
-            System.out.println(foundCustomer.toString());
-            tx.commit();
+//            em.remove(foundCustomer);
+//            System.out.println(foundCustomer.toString());
+            tx.commit(); // commit 시점에 insert 가 된다
         }catch (Exception e){
             tx.rollback();
         }finally {
