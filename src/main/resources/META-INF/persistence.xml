@@ -15,6 +15,7 @@
             <property name="javax.persistence.jdbc.password" value="study"/>
             <property name="javax.persistence.jdbc.url" value="jdbc:mysql://112.171.110.115:13306/studydb"/>
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />
+            <property name="hibernate.hbm2ddl.auto" value="create"/>
 
             <!-- 옵션 -->
             <property name="hibernate.show_sql" value="true" />
